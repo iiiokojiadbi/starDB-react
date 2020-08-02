@@ -37,6 +37,7 @@
     grid-area: list;
     align-self: start;
     display: grid;
+    grid-template-columns: minmax(max-content, min-content);
     align-content: center;
     margin: 0;
     padding: 0 0 0 20px;
@@ -44,7 +45,6 @@
   }
 
   &__list-item {
-    max-width: 200px;
     padding: 10px 0;
   }
 
