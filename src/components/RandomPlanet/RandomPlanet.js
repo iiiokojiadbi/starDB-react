@@ -7,8 +7,7 @@ import SwapiService from './../../utils/SwapiService';
 export default class RandomPlanet extends Component {
   swapiService = new SwapiService();
 
-  constructor() {
-    super();
+  componentDidMount() {
     this.updatePlanet();
   }
 
@@ -30,7 +29,7 @@ export default class RandomPlanet extends Component {
   };
 
   updatePlanet() {
-    const id = Math.floor(Math.random() * 10 + 2);
+    const id = Math.floor(Math.random() * 15);
     this.swapiService
       .getPlanet({ id })
       .then(this.onPlanetLoaded)
