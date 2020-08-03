@@ -11,6 +11,8 @@
   row-gap: 10px;
   padding: 20px;
   border-radius: 5px;
+  min-height: 290px;
+  box-sizing: border-box;
 
   &__img {
     grid-area: img;

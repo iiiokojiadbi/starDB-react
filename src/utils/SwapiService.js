@@ -13,28 +13,70 @@ export default class SwapiService {
 
   async getAllPeople() {
     const response = await this.getResource('/people/');
-    return response.results;
+    return response.results.map(this._transformPerson);
   }
 
   async getAllPlanets() {
     const response = await this.getResource('/planets/');
-    return response.results;
+    return response.results.map(this._transfomrPlanet);
   }
 
   async getAllStarships() {
     const response = await this.getResource('/starships/');
-    return response.results;
+    return response.results.map(this._transformStarship);
   }
 
-  getPerson({ id }) {
-    return this.getResource(`/people/${id}`);
+  async getPerson({ id }) {
+    const personData = await this.getResource(`/people/${id}`);
+    return this._transformPerson(personData);
   }
 
-  getPlanet({ id }) {
-    return this.getResource(`/planets/${id}`);
+  async getPlanet({ id }) {
+    const planetData = await this.getResource(`/planets/${id}`);
+    return this._transformPlanet(planetData);
   }
 
-  getStarship({ id }) {
-    return this.getResource(`/starships/${id}`);
+  async getStarship({ id }) {
+    const starshipData = await this.getResource(`/starships/${id}`);
+    return this._transformStarship(starshipData);
+  }
+
+  _extractId(item) {
+    const idRegExp = /\/([0-9]*)\/$/;
+    return item.url.match(idRegExp)[1];
+  }
+
+  _transformPlanet(planetData) {
+    return {
+      id: this._extractId(planetData),
+      name: planetData.name,
+      population: planetData.population,
+      rotationPeriod: planetData.rotation_period,
+      diameter: planetData.diameter,
+    };
+  }
+
+  _transformStarship(starshipData) {
+    return {
+      id: this._extractId(starshipData),
+      name: starshipData.name,
+      model: starshipData.model,
+      manufacturer: starshipData.manufacturer,
+      costInCredits: starshipData.costInCredits,
+      length: starshipData.length,
+      crew: starshipData.crew,
+      passengers: starshipData.passengers,
+      cargoCapacity: starshipData.cargoCapacity,
+    };
+  }
+
+  _transformPerson(personData) {
+    return {
+      id: this._extractId(personData),
+      name: personData.name,
+      gender: personData.gender,
+      birthYear: personData.birthYear,
+      eyeColor: personData.eyeColor,
+    };
   }
 }
