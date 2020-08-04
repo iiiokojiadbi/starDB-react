@@ -6,13 +6,8 @@
   display: grid;
   row-gap: 20px;
   column-gap: 20px;
-  grid-template-areas:
-    'header header'
-    'random random'
-    'list info'
-    'footer footer';
-  grid-template-columns: max-content 2fr;
-  grid-template-rows: repeat(4, min-content);
+  display: flex;
+  flex-direction: column;
   font-family: 'PTSans', Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
