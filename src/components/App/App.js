@@ -3,20 +3,25 @@ import './../../fonts/PTSans.scss';
 import './App.scss';
 import Header from './../Header';
 import RandomPlanet from './../RandomPlanet';
-import PageContent from './../PageContent';
+import PageWithContent from './../PageWithContent';
+import PersonDetails from './../PersonDetails';
+import ItemListPerson from './../ItemListPerson';
 import SwapiService from './../../utils/SwapiService';
 
 export default class App extends Component {
   swapiService = new SwapiService();
 
   render() {
+    const PageWithPeople = PageWithContent({
+      ItemListComponent: ItemListPerson,
+      DetailsComponent: PersonDetails,
+    });
+
     return (
       <div className="app">
         <Header />
         <RandomPlanet />
-        <PageContent getData={this.swapiService.getAllPeople} />
-        <PageContent getData={this.swapiService.getAllPlanets} />
-        <PageContent getData={this.swapiService.getAllStarships} />
+        <PageWithPeople getData={this.swapiService.getAllPeople} />
       </div>
     );
   }

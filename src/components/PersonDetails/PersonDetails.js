@@ -14,19 +14,19 @@ export default class PersonDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { personId } = this.props;
-    if (personId !== prevProps.personId) {
+    const { selectedItem } = this.props;
+    if (selectedItem !== prevProps.selectedItem) {
       this.updatePerson();
     }
   }
 
   updatePerson() {
-    const { personId } = this.props;
-    if (!personId) {
+    const { selectedItem } = this.props;
+    if (!selectedItem) {
       return;
     }
 
-    this.swapiService.getPerson({ id: personId }).then((person) => {
+    this.swapiService.getPerson({ id: selectedItem }).then((person) => {
       this.setState({ person });
     });
   }

@@ -39,24 +39,34 @@ export default class ChooseList extends Component {
 
   renderItems(arr) {
     const { selectedItem } = this.state;
+    const { ItemListComponent } = this.props;
 
-    return arr.map(({ id, name }) => {
+    return arr.map(({ id, ...props }) => {
       const isSelected = selectedItem === id;
 
       return (
-        <li
-          key={`${id}`}
-          id={`${id}`}
-          className={`choose__list-item ${
-            isSelected && 'choose__list-item_active'
-          }`}
-          onClick={(evt) => {
+        <ItemListComponent
+          key={`${id}_${props.name}`}
+          {...props}
+          onClickItem={(evt) => {
             this.props.onItemSelected(id);
             this.handleClickListItem(evt);
           }}
-        >
-          <span className="choose__text">{name}</span>
-        </li>
+          isSelected={isSelected}
+        />
+        // <li
+        //
+        //   id={`${id}`}
+        //   className={`choose__list-item ${
+        //     isSelected && 'choose__list-item_active'
+        //   }`}
+        // onClickItem={(evt) => {
+        //   this.props.onItemSelected(id);
+        //   this.handleClickListItem(evt);
+        // }}
+        // >
+        //   <span className="choose__text">{name}</span>
+        // </li>
       );
     });
   }
