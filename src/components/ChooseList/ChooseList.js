@@ -8,6 +8,7 @@ export default class ChooseList extends Component {
 
   state = {
     peopleList: null,
+    selectedPerson: null,
   };
 
   componentDidMount() {
@@ -18,13 +19,43 @@ export default class ChooseList extends Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    const { selectedPerson } = this.props;
+    if (selectedPerson !== prevProps.selectedPerson) {
+      this.setState({
+        selectedPerson,
+      });
+    }
+  }
+
+  handleClickListItem(evt) {
+    const { id } = evt.target;
+    const { selectedPerson } = this.state;
+
+    if (selectedPerson !== id) {
+      this.setState({
+        selectedPerson: id,
+      });
+    }
+  }
+
   renderItems(arr) {
+    const { selectedPerson } = this.state;
+
     return arr.map(({ id, name }) => {
+      const isSelected = selectedPerson === id;
+
       return (
         <li
           key={`${id}`}
-          className="choose__list-item"
-          onClick={() => this.props.onItemSelectedId(id)}
+          id={`${id}`}
+          className={`choose__list-item ${
+            isSelected && 'choose__list-item_active'
+          }`}
+          onClick={(evt) => {
+            this.props.onItemSelected(id);
+            this.handleClickListItem(evt);
+          }}
         >
           <span className="choose__text">{name}</span>
         </li>
