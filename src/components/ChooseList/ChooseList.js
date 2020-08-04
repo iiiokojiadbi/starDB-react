@@ -1,49 +1,47 @@
 import React, { Component } from 'react';
 import './ChooseList.scss';
 import Spinner from './../Spinner';
-import SwapiService from './../../utils/SwapiService';
 
 export default class ChooseList extends Component {
-  swapiService = new SwapiService();
-
   state = {
-    peopleList: null,
-    selectedPerson: null,
+    itemList: null,
+    selectedItem: null,
   };
 
   componentDidMount() {
-    this.swapiService.getAllPeople().then((peopleList) => {
+    const { getData } = this.props;
+    getData().then((itemList) => {
       this.setState({
-        peopleList,
+        itemList,
       });
     });
   }
 
   componentDidUpdate(prevProps) {
-    const { selectedPerson } = this.props;
-    if (selectedPerson !== prevProps.selectedPerson) {
+    const { selectedItem } = this.props;
+    if (selectedItem !== prevProps.selectedItem) {
       this.setState({
-        selectedPerson,
+        selectedItem,
       });
     }
   }
 
   handleClickListItem(evt) {
     const { id } = evt.target;
-    const { selectedPerson } = this.state;
+    const { selectedItem } = this.state;
 
-    if (selectedPerson !== id) {
+    if (selectedItem !== id) {
       this.setState({
-        selectedPerson: id,
+        selectedItem: id,
       });
     }
   }
 
   renderItems(arr) {
-    const { selectedPerson } = this.state;
+    const { selectedItem } = this.state;
 
     return arr.map(({ id, name }) => {
-      const isSelected = selectedPerson === id;
+      const isSelected = selectedItem === id;
 
       return (
         <li
@@ -64,13 +62,13 @@ export default class ChooseList extends Component {
   }
 
   render() {
-    const { peopleList } = this.state;
+    const { itemList } = this.state;
 
-    if (!peopleList) {
+    if (!itemList) {
       return <Spinner />;
     }
 
-    const items = this.renderItems(peopleList);
+    const items = this.renderItems(itemList);
 
     return (
       <section className="choose">

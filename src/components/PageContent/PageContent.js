@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './PeoplePage.scss';
+import './PageContent.scss';
 import ChooseList from './../ChooseList';
 import PersonDetails from './../PersonDetails';
 import ErrorIndicator from './../ErrorIndicator';
 
-export default class PeoplePage extends Component {
+export default class PageContent extends Component {
   state = {
     selectedPerson: 1,
     hasError: false,
@@ -30,10 +30,11 @@ export default class PeoplePage extends Component {
     const { selectedPerson: id } = this.state;
 
     return (
-      <section className="people-page">
+      <section className="page-content">
         <ChooseList
           onItemSelected={this.handlePersonSelectedId}
-          selectedPerson={id}
+          getData={this.props.getData}
+          selectedItem={id}
         />
         <PersonDetails personId={id} />
       </section>
