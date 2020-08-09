@@ -1,0 +1,19 @@
+.app {
+  max-width: 900px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  row-gap: 20px;
+  column-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'PTSans', Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}

@@ -1,0 +1,55 @@
+.random-planet {
+  background-color: #303030;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  min-height: 290px;
+  box-sizing: border-box;
+
+  &__img {
+    grid-row: 1 / -1;
+    grid-template: 1 / 2;
+    display: block;
+    max-height: 250px;
+    border-radius: 5px;
+  }
+
+  &__title {
+    grid-row: 1 / 2;
+    grid-template: 2 / 3;
+    margin: 0;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  &__text {
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  &__list {
+    grid-row: 2 / 3;
+    grid-template: 2 / 3;
+    align-self: start;
+    display: grid;
+    grid-template-columns: minmax(max-content, min-content);
+    align-content: center;
+    margin: 0;
+    padding: 0 0 0 20px;
+    list-style: none;
+  }
+
+  &__list-item {
+    padding: 10px 0;
+  }
+
+  &__list-item:not(:first-child) {
+    border-top: 1px solid #444444;
+  }
+}
