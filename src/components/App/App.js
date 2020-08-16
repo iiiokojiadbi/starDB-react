@@ -26,6 +26,28 @@ export default class App extends Component {
         >
           {/* <PersonDetails /> */}
         </PageWithContent>
+        <PageWithContent
+          getData={this.swapiService.getAllStarships}
+          renderItem={({ name, model }) => (
+            <>
+              <span className="choose__text">{name}</span>
+              <span className="choose__text">Model: {model}</span>
+            </>
+          )}
+        >
+          {/* <PersonDetails /> */}
+        </PageWithContent>
+        <PageWithContent
+          getData={this.swapiService.getAllPlanets}
+          renderItem={({ name, population }) => (
+            <>
+              <span className="choose__text">{name}</span>
+              <span className="choose__text">Population: {population}</span>
+            </>
+          )}
+        >
+          {/* <PersonDetails /> */}
+        </PageWithContent>
       </div>
     );
   }
