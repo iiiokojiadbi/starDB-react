@@ -4,7 +4,6 @@ import './App.scss';
 import Header from './../Header';
 import RandomPlanet from './../RandomPlanet';
 import PageWithContent from './../PageWithContent';
-import ItemDetails from './../ItemDetails';
 import SwapiService from './../../utils/SwapiService';
 
 export default class App extends Component {
@@ -17,37 +16,37 @@ export default class App extends Component {
         <RandomPlanet />
         <PageWithContent
           getData={this.swapiService.getAllPeople}
+          getDetails={this.swapiService.getPerson}
+          getImageUrl={'characters'}
           renderItem={({ name, birthYear }) => (
             <>
               <span className="choose__text">{name}</span>
               <span className="choose__text">Birth Year: {birthYear}</span>
             </>
           )}
-        >
-          {/* <PersonDetails /> */}
-        </PageWithContent>
+        ></PageWithContent>
         <PageWithContent
           getData={this.swapiService.getAllStarships}
+          getDetails={this.swapiService.getStarship}
+          getImageUrl={'starships'}
           renderItem={({ name, model }) => (
             <>
               <span className="choose__text">{name}</span>
               <span className="choose__text">Model: {model}</span>
             </>
           )}
-        >
-          {/* <PersonDetails /> */}
-        </PageWithContent>
+        ></PageWithContent>
         <PageWithContent
           getData={this.swapiService.getAllPlanets}
+          getDetails={this.swapiService.getPlanet}
+          getImageUrl={'planets'}
           renderItem={({ name, population }) => (
             <>
               <span className="choose__text">{name}</span>
               <span className="choose__text">Population: {population}</span>
             </>
           )}
-        >
-          {/* <PersonDetails /> */}
-        </PageWithContent>
+        ></PageWithContent>
       </div>
     );
   }

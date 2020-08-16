@@ -2,33 +2,39 @@ import React, { Component } from 'react';
 import './PageWithContent.scss';
 import ChooseList from './../ChooseList';
 import ErrorBoundry from './../ErrorBoundry';
+import ItemDetails from './../ItemDetails';
 
 export default class PageWithContent extends Component {
   state = {
-    selectedPerson: 1,
+    selectedItem: 5,
   };
 
-  handlePersonSelectedId = (id) => {
+  handleItemSelectedId = (id) => {
     this.setState({
-      selectedPerson: id,
+      selectedItem: id,
     });
   };
 
   render() {
-    const { selectedPerson: id } = this.state;
-    const { children } = this.props;
+    const { selectedItem } = this.state;
 
     return (
       <section className="page-content">
         <ErrorBoundry>
           <ChooseList
-            onItemSelected={this.handlePersonSelectedId}
+            onItemSelected={this.handleItemSelectedId}
             getData={this.props.getData}
-            selectedItem={id}
+            selectedItem={selectedItem}
             renderItem={this.props.renderItem}
           />
         </ErrorBoundry>
-        {/* <ErrorBoundry></ErrorBoundry> */}
+        <ErrorBoundry>
+          <ItemDetails
+            getDetails={this.props.getDetails}
+            getImageUrl={this.props.getImageUrl}
+            selectedItem={selectedItem}
+          />
+        </ErrorBoundry>
       </section>
     );
   }
