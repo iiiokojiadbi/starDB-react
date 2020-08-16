@@ -5,6 +5,7 @@ import Header from './../Header';
 import RandomPlanet from './../RandomPlanet';
 import PageWithContent from './../PageWithContent';
 import SwapiService from './../../utils/SwapiService';
+import { Record } from './../ItemDetails';
 
 export default class App extends Component {
   swapiService = new SwapiService();
@@ -24,7 +25,11 @@ export default class App extends Component {
               <span className="choose__text">Birth Year: {birthYear}</span>
             </>
           )}
-        ></PageWithContent>
+        >
+          <Record field="gender" label="Gender" />
+          <Record field="eyeColor" label="Eye color" />
+          <Record field="birthYear" label="Birth Year" />
+        </PageWithContent>
         <PageWithContent
           getData={this.swapiService.getAllStarships}
           getDetails={this.swapiService.getStarship}
@@ -35,7 +40,11 @@ export default class App extends Component {
               <span className="choose__text">Model: {model}</span>
             </>
           )}
-        ></PageWithContent>
+        >
+          <Record field="model" label="Model" />
+          <Record field="length" label="Length" />
+          <Record field="costInCredits" label="Cost in credits" />
+        </PageWithContent>
         <PageWithContent
           getData={this.swapiService.getAllPlanets}
           getDetails={this.swapiService.getPlanet}
@@ -46,7 +55,11 @@ export default class App extends Component {
               <span className="choose__text">Population: {population}</span>
             </>
           )}
-        ></PageWithContent>
+        >
+          <Record field="population" label="Population" />
+          <Record field="rotationPeriod" label="Rotation period" />
+          <Record field="diameter" label="Diameter" />
+        </PageWithContent>
       </div>
     );
   }

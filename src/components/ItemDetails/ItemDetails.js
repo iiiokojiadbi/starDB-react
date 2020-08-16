@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import './ItemDetails.scss';
 import SwapiService from './../../utils/SwapiService';
 
+export const Record = ({ item, field, label }) => {
+  return (
+    <li className="details__list-item">
+      <span className="details__text">
+        {label}: {item[field]}
+      </span>
+    </li>
+  );
+};
+
 export default class ItemDetails extends Component {
   swapiService = new SwapiService();
 
@@ -39,7 +49,7 @@ export default class ItemDetails extends Component {
       return <div className="person"></div>;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = item;
+    const { name } = item;
 
     return (
       <section className="details">
@@ -47,15 +57,9 @@ export default class ItemDetails extends Component {
           <img src={image} alt="" className="details__img" />
           <h2 className="details__title">{name}</h2>
           <ul className="details__list">
-            <li className="details__list-item">
-              <span className="details__text">Gender: {gender}</span>
-            </li>
-            <li className="details__list-item">
-              <span className="details__text">Birth Year: {birthYear}</span>
-            </li>
-            <li className="details__list-item">
-              <span className="details__text">Eye Color: {eyeColor}</span>
-            </li>
+            {React.Children.map(this.props.children, (child) => {
+              return React.cloneElement(child, { item });
+            })}
           </ul>
         </div>
       </section>

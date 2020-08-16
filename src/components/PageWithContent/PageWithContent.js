@@ -33,7 +33,9 @@ export default class PageWithContent extends Component {
             getDetails={this.props.getDetails}
             getImageUrl={this.props.getImageUrl}
             selectedItem={selectedItem}
-          />
+          >
+            {this.props.children}
+          </ItemDetails>
         </ErrorBoundry>
       </section>
     );
