@@ -28,7 +28,7 @@ export default class ItemDetails extends Component {
     }
 
     getDetails({ id: selectedItem }).then((item) => {
-      this.setState({ item, image: getImageUrl });
+      this.setState({ item, image: getImageUrl({ id: selectedItem }) });
     });
   }
 
@@ -44,11 +44,7 @@ export default class ItemDetails extends Component {
     return (
       <section className="details">
         <div className="details__wrapper">
-          <img
-            src={`https://starwars-visualguide.com/assets/img/${image}/${id}.jpg`}
-            alt=""
-            className="details__img"
-          />
+          <img src={image} alt="" className="details__img" />
           <h2 className="details__title">{name}</h2>
           <ul className="details__list">
             <li className="details__list-item">

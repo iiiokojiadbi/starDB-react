@@ -17,7 +17,7 @@ export default class App extends Component {
         <PageWithContent
           getData={this.swapiService.getAllPeople}
           getDetails={this.swapiService.getPerson}
-          getImageUrl={'characters'}
+          getImageUrl={this.swapiService.getPersonImage}
           renderItem={({ name, birthYear }) => (
             <>
               <span className="choose__text">{name}</span>
@@ -28,7 +28,7 @@ export default class App extends Component {
         <PageWithContent
           getData={this.swapiService.getAllStarships}
           getDetails={this.swapiService.getStarship}
-          getImageUrl={'starships'}
+          getImageUrl={this.swapiService.getStarshipImage}
           renderItem={({ name, model }) => (
             <>
               <span className="choose__text">{name}</span>
@@ -39,7 +39,7 @@ export default class App extends Component {
         <PageWithContent
           getData={this.swapiService.getAllPlanets}
           getDetails={this.swapiService.getPlanet}
-          getImageUrl={'planets'}
+          getImageUrl={this.swapiService.getPlanetImage}
           renderItem={({ name, population }) => (
             <>
               <span className="choose__text">{name}</span>
