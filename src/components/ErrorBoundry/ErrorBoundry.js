@@ -20,3 +20,4 @@ export default class ErrorBoundry extends Component {
     return this.props.children;
   }
 }
+ 

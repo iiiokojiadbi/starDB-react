@@ -4,7 +4,7 @@ import './App.scss';
 import Header from './../Header';
 import RandomPlanet from './../RandomPlanet';
 import PageWithContent from './../PageWithContent';
-import PersonDetails from './../PersonDetails';
+import ItemDetails from './../ItemDetails';
 import SwapiService from './../../utils/SwapiService';
 
 export default class App extends Component {
