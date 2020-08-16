@@ -3,41 +3,33 @@ import './PageWithContent.scss';
 import ChooseList from './../ChooseList';
 import ErrorBoundry from './../ErrorBoundry';
 
+export default class PageWithContent extends Component {
+  state = {
+    selectedPerson: 1,
+  };
 
-const PageWithContent = ({ ItemListComponent, DetailsComponent }) => {
-  class PageContent extends Component {
-    state = {
-      selectedPerson: 1,
-    };
+  handlePersonSelectedId = (id) => {
+    this.setState({
+      selectedPerson: id,
+    });
+  };
 
-    handlePersonSelectedId = (id) => {
-      this.setState({
-        selectedPerson: id,
-      });
-    };
+  render() {
+    const { selectedPerson: id } = this.state;
+    const { children } = this.props;
 
-    render() {
-      const { selectedPerson: id } = this.state;
-
-      return (
-        <section className="page-content">
-          <ErrorBoundry>
-            <ChooseList
-              onItemSelected={this.handlePersonSelectedId}
-              getData={this.props.getData}
-              selectedItem={id}
-              ItemListComponent={ItemListComponent}
-            />
-          </ErrorBoundry>
-          <ErrorBoundry>
-            <DetailsComponent selectedItem={id} />
-          </ErrorBoundry>
-        </section>
-      );
-    }
+    return (
+      <section className="page-content">
+        <ErrorBoundry>
+          <ChooseList
+            onItemSelected={this.handlePersonSelectedId}
+            getData={this.props.getData}
+            selectedItem={id}
+            renderItem={this.props.renderItem}
+          />
+        </ErrorBoundry>
+        {/* <ErrorBoundry></ErrorBoundry> */}
+      </section>
+    );
   }
-
-  return PageContent;
-};
-
-export default PageWithContent;
+}
