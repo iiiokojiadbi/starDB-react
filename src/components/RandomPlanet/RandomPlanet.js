@@ -50,7 +50,7 @@ export default class RandomPlanet extends Component {
     const content = !hasNotData || <PlanetView planet={planet} />;
 
     return (
-      <section className="random-planet">
+      <section className='random-planet'>
         {errorIndicator}
         {spinner}
         {content}
@@ -66,21 +66,21 @@ function PlanetView({ planet }) {
     <>
       <img
         src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
-        alt=""
-        className="random-planet__img"
+        alt=''
+        className='random-planet__img'
       />
-      <h2 className="random-planet__title">{name}</h2>
-      <ul className="random-planet__list">
-        <li className="random-planet__list-item">
-          <span className="random-planet__text">Population: {population}</span>
+      <h2 className='random-planet__title'>{name}</h2>
+      <ul className='random-planet__list'>
+        <li className='random-planet__list-item'>
+          <span className='random-planet__text'>Population: {population}</span>
         </li>
-        <li className="random-planet__list-item">
-          <span className="random-planet__text">
+        <li className='random-planet__list-item'>
+          <span className='random-planet__text'>
             Rotation period: {rotationPeriod}
           </span>
         </li>
-        <li className="random-planet__list-item">
-          <span className="random-planet__text">Diameter: {diameter}</span>
+        <li className='random-planet__list-item'>
+          <span className='random-planet__text'>Diameter: {diameter}</span>
         </li>
       </ul>
     </>

@@ -19,7 +19,7 @@ export default class PageWithContent extends Component {
     const { selectedItem } = this.state;
 
     return (
-      <section className="page-content">
+      <section className='page-content'>
         <ErrorBoundry>
           <ChooseList
             onItemSelected={this.handleItemSelectedId}

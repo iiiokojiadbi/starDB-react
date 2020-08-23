@@ -4,8 +4,8 @@ import SwapiService from './../../utils/SwapiService';
 
 export const Record = ({ item, field, label }) => {
   return (
-    <li className="details__list-item">
-      <span className="details__text">
+    <li className='details__list-item'>
+      <span className='details__text'>
         {label}: {item[field]}
       </span>
     </li>
@@ -46,17 +46,17 @@ export default class ItemDetails extends Component {
     const { item, image } = this.state;
 
     if (!item) {
-      return <div className="person"></div>;
+      return <div className='person'></div>;
     }
 
     const { name } = item;
 
     return (
-      <section className="details">
-        <div className="details__wrapper">
-          <img src={image} alt="" className="details__img" />
-          <h2 className="details__title">{name}</h2>
-          <ul className="details__list">
+      <section className='details'>
+        <div className='details__wrapper'>
+          <img src={image} alt='' className='details__img' />
+          <h2 className='details__title'>{name}</h2>
+          <ul className='details__list'>
             {React.Children.map(this.props.children, (child) => {
               return React.cloneElement(child, { item });
             })}

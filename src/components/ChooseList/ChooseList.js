@@ -72,9 +72,9 @@ export default class ChooseList extends Component {
     const items = this.renderItems(itemList);
 
     return (
-      <section className="choose">
-        <h2 className="choose__title">Choose a person from the list</h2>
-        <ul className="choose__list">{items}</ul>
+      <section className='choose'>
+        <h2 className='choose__title'>Choose a person from the list</h2>
+        <ul className='choose__list'>{items}</ul>
       </section>
     );
   }
