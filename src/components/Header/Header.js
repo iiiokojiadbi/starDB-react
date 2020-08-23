@@ -9,21 +9,21 @@ function Header() {
       <nav className='header__nav'>
         <NavLink
           exact
-          to='/people'
+          to='/people/'
           className='header__link'
           activeClassName='header__link_active'
         >
           People
         </NavLink>
         <NavLink
-          to='/planets'
+          to='/planets/'
           className='header__link'
           activeClassName='header__link_active'
         >
           Planets
         </NavLink>
         <NavLink
-          to='/starships'
+          to='/starships/'
           className='header__link'
           activeClassName='header__link_active'
         >

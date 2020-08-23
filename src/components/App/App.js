@@ -15,13 +15,13 @@ export default class App extends Component {
         <RandomPlanet />
         <Switch>
           <SwapiProvider>
-            <Route exact path='/people'>
+            <Route exact path='/people/'>
               <PeoplePage />
             </Route>
-            <Route path='/planets'>
+            <Route path='/planets/'>
               <PlanetPage />
             </Route>
-            <Route path='/starships'>
+            <Route path='/starships/'>
               <StarshipsPage />
             </Route>
           </SwapiProvider>
