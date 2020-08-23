@@ -5,7 +5,6 @@ import { useSwapi } from './../../context/SwapiServiceContext';
 const renderStarshipItem = ({ name, model }) => (
   <>
     <span className='choose__text'>{name}</span>
-    <span className='choose__text'>Model: {model}</span>
   </>
 );
 

@@ -1,5 +1,13 @@
 .page-content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   column-gap: 20px;
+  padding-bottom: 20px;
+
+  @media (max-width: 920px) {
+    & {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
 }
