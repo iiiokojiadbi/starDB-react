@@ -4,7 +4,7 @@ import './../../fonts/PTSans.scss';
 import './App.scss';
 import Header from './../Header';
 import RandomPlanet from './../RandomPlanet';
-import { PeoplePage, PlanetPage, StarshipsPage } from './../sw-components';
+import { PeoplePage, PlanetsPage, StarshipsPage } from './../pages';
 import { SwapiProvider } from './../../context/SwapiServiceContext';
 
 export default class App extends Component {
@@ -15,13 +15,13 @@ export default class App extends Component {
         <RandomPlanet />
         <Switch>
           <SwapiProvider>
-            <Route exact path='/people/'>
+            <Route exact path='/people/:id?'>
               <PeoplePage />
             </Route>
-            <Route path='/planets/'>
-              <PlanetPage />
+            <Route path='/planets/:id?'>
+              <PlanetsPage />
             </Route>
-            <Route path='/starships/'>
+            <Route path='/starships/:id?'>
               <StarshipsPage />
             </Route>
           </SwapiProvider>

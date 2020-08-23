@@ -32,7 +32,7 @@ export default class ItemDetails extends Component {
   }
 
   updateItem() {
-    const { selectedItem, getDetails, getImageUrl } = this.props;
+    const { selectedItem = 5, getDetails, getImageUrl } = this.props;
     if (!selectedItem) {
       return;
     }
