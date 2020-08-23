@@ -66,8 +66,6 @@
     color: white;
     font-size: 20px;
     font-weight: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
     @media (max-width: 620px) {
       & {
@@ -85,7 +83,6 @@
     margin: 0;
     padding: 0 0 0 20px;
     list-style: none;
-    overflow: hidden;
 
     @media (max-width: 480px) {
       & {
@@ -97,9 +94,6 @@
   &__list-item {
     width: 100%;
     padding: 10px 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #fff;
   }
 
   &__list-item:not(:first-child) {
