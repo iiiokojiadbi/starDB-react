@@ -1,10 +1,6 @@
 import React from 'react';
-import SwapiService from './../../utils/SwapiService';
 import ChooseList from './../ChooseList';
-
-const swapiService = new SwapiService();
-
-const { getAllPeople } = swapiService;
+import { useSwapi } from './../../context/SwapiServiceContext';
 
 const renderPersonItem = ({ name, birthYear }) => (
   <>
@@ -14,6 +10,8 @@ const renderPersonItem = ({ name, birthYear }) => (
 );
 
 const PersonList = ({ selectedItem, onItemSelected }) => {
+  const { getAllPeople } = useSwapi();
+
   return (
     <ChooseList
       onItemSelected={onItemSelected}

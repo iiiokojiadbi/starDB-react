@@ -1,10 +1,6 @@
 import React from 'react';
-import SwapiService from './../../utils/SwapiService';
 import ChooseList from './../ChooseList';
-
-const swapiService = new SwapiService();
-
-const { getAllStarships } = swapiService;
+import { useSwapi } from './../../context/SwapiServiceContext';
 
 const renderStarshipItem = ({ name, model }) => (
   <>
@@ -14,6 +10,8 @@ const renderStarshipItem = ({ name, model }) => (
 );
 
 const StarshipList = ({ selectedItem, onItemSelected }) => {
+  const { getAllStarships } = useSwapi();
+
   return (
     <ChooseList
       onItemSelected={onItemSelected}

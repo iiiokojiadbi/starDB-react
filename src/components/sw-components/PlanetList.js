@@ -1,10 +1,6 @@
 import React from 'react';
-import SwapiService from './../../utils/SwapiService';
 import ChooseList from './../ChooseList';
-
-const swapiService = new SwapiService();
-
-const { getAllPlanets } = swapiService;
+import { useSwapi } from './../../context/SwapiServiceContext';
 
 const renderPlanetItem = ({ name, birthYear }) => (
   <>
@@ -14,6 +10,8 @@ const renderPlanetItem = ({ name, birthYear }) => (
 );
 
 const PlanetList = ({ selectedItem, onItemSelected }) => {
+  const { getAllPlanets } = useSwapi();
+
   return (
     <ChooseList
       onItemSelected={onItemSelected}

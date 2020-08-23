@@ -1,12 +1,10 @@
 import React from 'react';
-import SwapiService from './../../utils/SwapiService';
 import ItemDetails, { Record } from './../ItemDetails';
-
-const swapiService = new SwapiService();
-
-const { getStarship, getStarshipImage } = swapiService;
+import { useSwapi } from './../../context/SwapiServiceContext';
 
 const StarshipDetails = ({ selectedItem }) => {
+  const { getStarship, getStarshipImage } = useSwapi();
+
   return (
     <ItemDetails
       getDetails={getStarship}
