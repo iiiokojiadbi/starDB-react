@@ -3,7 +3,7 @@ import './../../fonts/PTSans.scss';
 import './App.scss';
 import Header from './../Header';
 import RandomPlanet from './../RandomPlanet';
-import { PersonPage, StarshipPage, PlanetPage } from './../sw-components';
+import { PeoplePage, PlanetPage, StarshipsPage } from './../sw-components';
 
 export default class App extends Component {
   render() {
@@ -11,9 +11,9 @@ export default class App extends Component {
       <div className='app'>
         <Header />
         <RandomPlanet />
-        <PersonPage />
-        <StarshipPage />
+        <PeoplePage />
         <PlanetPage />
+        <StarshipsPage />
       </div>
     );
   }

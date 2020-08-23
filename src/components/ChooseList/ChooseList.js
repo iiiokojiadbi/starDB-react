@@ -10,6 +10,7 @@ export default class ChooseList extends Component {
 
   componentDidMount() {
     const { getData } = this.props;
+
     getData().then((itemList) => {
       this.setState({
         itemList,
