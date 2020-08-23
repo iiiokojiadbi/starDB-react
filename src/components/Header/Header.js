@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Header.scss';
 
 function Header() {
@@ -6,15 +7,28 @@ function Header() {
     <header className='header'>
       <h1 className='header__title'>Star DB</h1>
       <nav className='header__nav'>
-        <div href='#' className='header__link'>
+        <NavLink
+          exact
+          to='/people'
+          className='header__link'
+          activeClassName='header__link_active'
+        >
           People
-        </div>
-        <div href='#' className='header__link'>
+        </NavLink>
+        <NavLink
+          to='/planets'
+          className='header__link'
+          activeClassName='header__link_active'
+        >
           Planets
-        </div>
-        <div href='#' className='header__link'>
+        </NavLink>
+        <NavLink
+          to='/starships'
+          className='header__link'
+          activeClassName='header__link_active'
+        >
           Starships
-        </div>
+        </NavLink>
       </nav>
     </header>
   );

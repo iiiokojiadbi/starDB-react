@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './../../fonts/PTSans.scss';
 import './App.scss';
 import Header from './../Header';
@@ -12,11 +13,19 @@ export default class App extends Component {
       <div className='app'>
         <Header />
         <RandomPlanet />
-        <SwapiProvider>
-          <PeoplePage />
-          <PlanetPage />
-          <StarshipsPage />
-        </SwapiProvider>
+        <Switch>
+          <SwapiProvider>
+            <Route exact path='/people'>
+              <PeoplePage />
+            </Route>
+            <Route path='/planets'>
+              <PlanetPage />
+            </Route>
+            <Route path='/starships'>
+              <StarshipsPage />
+            </Route>
+          </SwapiProvider>
+        </Switch>
       </div>
     );
   }
