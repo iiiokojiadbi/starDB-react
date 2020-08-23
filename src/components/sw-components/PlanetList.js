@@ -2,10 +2,10 @@ import React from 'react';
 import ChooseList from './../ChooseList';
 import { useSwapi } from './../../context/SwapiServiceContext';
 
-const renderPlanetItem = ({ name, birthYear }) => (
+const renderPlanetItem = ({ name, population }) => (
   <>
     <span className='choose__text'>{name}</span>
-    <span className='choose__text'>Birth year: {birthYear}</span>
+    <span className='choose__text'>Population: {population}</span>
   </>
 );
 
