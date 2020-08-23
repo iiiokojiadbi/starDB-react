@@ -1,5 +1,9 @@
-import { PersonList, StarshipList, PlanetList } from './ItemList';
-import { PersonDetails, StarshipDetails, PlanetDetails } from './Details';
+import { PersonList } from './PersonList';
+import { PlanetList } from './PlanetList';
+import { StarshipList } from './StarshipList';
+import { PersonDetails } from './PersonDetails';
+import { PlanetDetails } from './PlanetDetails';
+import { StarshipDetails } from './StarshipDetails';
 import WithContent from './../HOCHelpers';
 
 const PeoplePage = WithContent(PersonDetails, PersonList);
